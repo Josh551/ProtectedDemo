@@ -18,7 +18,7 @@ router.post("/register", (req, res) => {
     if (user) {
       return res.status(400).json({ msg: "Email already exists" });
     } else {
-      //if user is new,gravatar icon is asigned
+      //if user is new,gravatar icon is assigned
       const avatar = gravatar.url(req.body.email, {
         s: "200",
         r: "pg",
@@ -72,7 +72,7 @@ router.post("/login", (req, res) => {
           //1hour expiration for key
           { expiresIn: 3600 },
           (err, token) => {
-            //if login is a success User gets a bearer token,which should be put in header
+            //if login is a success User gets a bearer token
             res.json({
               success: true,
               token: "Bearer " + token,
